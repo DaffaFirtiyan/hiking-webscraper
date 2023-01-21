@@ -5,10 +5,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import csv
 
-url = "https://www.wellingtonregionaltrails.com/trails/search?q=&location=&use=&difficulty=14&distance=&type=&start=0&_=1673510890038"
+url_easy = "https://www.wellingtonregionaltrails.com/trails/search?q=&location=&use=&difficulty=14&distance=&type=&start=0&_=1673510890038"
+url_intermediate = "https://www.wellingtonregionaltrails.com/trails/search?q=&location=&use=&difficulty=15&distance=&type=&start=0&_=1674344874509"
 
 driver = webdriver.ChromiumEdge()
-driver.get(url)
+driver.get(url_intermediate)
 wait = WebDriverWait(driver, 30)
 element = wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, "el-panel__block")))
 html = driver.page_source
@@ -19,7 +20,7 @@ results = soup.find("div", class_=["results", "results--ofsearch"])
 trails = results.find_all("div", class_=["el-panel__block", "el-panel__block--25", "pure-u-16-16", "pure-u-sm-12-24", "pure-u-lg-6-24"])
 
 # print(len(trails))
-with open("trails.csv","w", newline="", encoding="utf-8") as file:
+with open("trails_intermediate.csv","w", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
     writer.writerow(["Name", "Location", "Distance"])
     for trail in trails:
