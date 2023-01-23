@@ -21,3 +21,5 @@ Fix: Used Selenium to load a browser and waits for the page to load until a cert
 3. \u0101 error when writing the data into the csv
 
 Fix: Figured out it was a unicode character not supported. Specified encoding UTF-8 that supports \u0101
+
+4. Current problem: the script manage to click on the "load more" button 4 times but is still only returning the first 20 trails instead of the expected 80 trails
