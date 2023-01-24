@@ -34,7 +34,7 @@ if counter == 4:
     results = soup.find("div", class_=["results", "results--ofsearch"])
     trails = results.find_all("div", class_=["el-panel__block", "el-panel__block--25", "pure-u-16-16", "pure-u-sm-12-24", "pure-u-lg-6-24"])
 
-    print(len(trails))
+    # print(len(trails))
     with open("trails.csv","w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         writer.writerow(["Name", "Location", "Distance"])
